@@ -142,22 +142,26 @@ const Basics = () => {
           <p>Record 6</p>
         </div>
 
-        <div className="Visible-Element">
-          <h1 style={styles.h1}>Show/Hide Element</h1>
-          <button style={styles.button} onClick={toggleVisibility}>
-            {isVisible ? 'Hide' : 'Show'} Element
-          </button>
-          {isVisible && <div>I am visible content</div>}
-        </div>
+        <div>
+      <div className="Visible-Element">
+        <h1 style={styles.h1}>Show/Hide Element</h1>
+        <button
+          style={{ ...styles.button, ...(isDisabled ? styles.buttonDisabled : {}) }}
+          onClick={toggleVisibility}
+          disabled={isDisabled}
+        >
+          {isVisible ? 'Hide' : 'Show'} Element
+        </button>
+        {isVisible && <div>I am visible content</div>}
+      </div>
 
-        <div className="Disable-Button">
-          <h1 style={styles.h1}>Enable/Disable Button</h1>
-          <button style={{ ...styles.button, ...(isDisabled ? styles.buttonDisabled : {}) }} disabled={isDisabled}>Click Me</button>
-          <button style={styles.button} onClick={toggleButton}>
-            {isDisabled ? 'Enable' : 'Disable'} Button
-          </button>
-        </div>
-
+      <div className="Disable-Button">
+        <h1 style={styles.h1}>Enable/Disable Button</h1>
+        <button style={styles.button} onClick={toggleButton}>
+          {isDisabled ? 'Enable' : 'Disable'} Button
+        </button>
+      </div>
+    </div>
         <div className="Data-binding">
           <h1 style={styles.h1}>Data Binding Using Textbox</h1>
           <input style={styles.input} type="text" value={text} onChange={handleChange} />
